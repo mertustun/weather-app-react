@@ -41,13 +41,16 @@ const Weather = () => {
                             day: 'numeric',
                             hour: '2-digit'
                         })
+                        const rounded_min = Math.round(day.main.temp_min)
+                        const rounded_max = Math.round(day.main.temp_max)
+                        
                         return (
                             <div key={index} className="day-weather">
                                 <p className='date'>{formatted_date}</p>
                                 <div className="temp">
-                                    <p><small>min</small> {Math.round(day.main.temp_min)} &#8451;</p>
+                                    <p><small>min</small> {rounded_min} &#8451;</p>
                                     {/* <p><small>now</small>{Math.round(day.main.temp)} &#8451;</p> */}
-                                    <p><small>max</small> {Math.round(day.main.temp_max)} &#8451;</p>
+                                    <p><small>max</small> {rounded_max} &#8451;</p>
                                 </div>
                                 <div className="weather-desc">
                                     <p className='main-desc'>{day.weather[0].main}</p>
